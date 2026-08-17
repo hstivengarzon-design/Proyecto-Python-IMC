@@ -1,45 +1,40 @@
 # calculadora_imc.py
 
 '''
-Este programa almacena los datos básicos de una persona
- (nombre, apellidos, edad, peso y estatura), para utilizarlos
- posteriormente en el cálculo del Índice de Masa Corporal (IMC).
+Este programa solicita los datos básicos de una persona
+(nombre, apellidos, edad, peso y estatura) y calcula
+su Índice de Masa Corporal (IMC).
 '''
 
-# variable del nombre de la persona (variable tipo string)
-nombre = "Harold"
+# Solicita el nombre de la persona (tipo string)
+nombre = input("Ingrese su nombre: ")
 
-# variable del apellido por parte del padre de la persona (tipo string)
-apellido_paterno = "Garzon"
+# Solicita el apellido paterno (tipo string)
+apellido_paterno = input("Ingrese su apellido paterno: ")
 
-# variable del apellido por parte de la madre de la persona (tipo string)
-apellido_materno = "Patio"
+# Solicita el apellido materno (tipo string)
+apellido_materno = input("Ingrese su apellido materno: ")
 
-# variable de la edad de la persona (tipo int)
-edad = 18
+# Solicita la edad y la convierte a entero (tipo int)
+edad = int(input("Ingrese su edad: "))
 
-# varable del peso de la persona en kilogramos (tipo float)
-peso = 56.0
+# Solicita el peso y lo convierte a decimal (tipo float)
+peso = float(input("Ingrese su peso en kilogramos: "))
 
-# variable de la estatura de la persona en metros (tipo float)
-estatura = 1.73
+# Solicita la estatura y la convierte a decimal (tipo float)
+estatura = float(input("Ingrese su estatura en metros: "))
 
-# verificacion de que el programa reconoce las variables
+# Calcula el Índice de Masa Corporal
+imc = peso / (estatura ** 2)
 
-# muestra "Nombre" y lo que esta almacenado en la variable nombre (tipo string)
-print("Nombre:",nombre)
+# Muestra los datos y el resultado del cálculo
+print("\n--- Datos de la persona ---")
+print("Nombre:", nombre)
+print("Apellido paterno:", apellido_paterno)
+print("Apellido materno:", apellido_materno)
+print("Edad:", edad)
+print("Peso:", peso, "kg")
+print("Estatura:", estatura, "m")
 
-# muestra "Apellido paterno:" y lo que esta almacenado en la variable apellido_paterno (tipo string)
-print("Apellido paterno:",apellido_paterno)
-
-# muestra "Apellido materno:" y lo que esta almacenado en la variable apellido_materno (tipo string)
-print("Apellido materno:",apellido_materno)
-
-# muestra "Edad" y lo que esta almacenado en la variable edad (tipo int)
-print("Edad:",edad)
-
-# muestra "Peso", lo que esta almacenado en la variable edad (tipo float) y "Kg"
-print("Peso:",peso,  "kg")
-
-# muestra "Estatura", lo que esta almacenado en la variable edad (tipo float) y "m"
-print("Estatura:",estatura,  "m")
+print("\n--- Resultado ---")
+print("IMC:", imc)
