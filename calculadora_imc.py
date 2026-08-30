@@ -6,28 +6,60 @@ Este programa solicita los datos básicos de una persona
 su Índice de Masa Corporal (IMC).
 '''
 
-# Solicita el nombre y lo muestra con la primera letra en mayúscula
-nombre = input("Ingrese su nombre: ").capitalize()
 
-# Solicita el apellido paterno y lo muestra con la primera letra en mayúscula
-apellido_paterno = input("Ingrese su apellido paterno: ").capitalize()
+# Solicita un texto y verifica que no esté vacío
+def solicitar_texto(mensaje):
+    while True:
+        dato = input(mensaje).strip()
 
-# Solicita el apellido materno y lo muestra con la primera letra en mayúscula
-apellido_materno = input("Ingrese su apellido materno: ").capitalize()
+        if dato:
+            return dato.capitalize()
 
-# Solicita la edad y la convierte a entero
-edad = int(input("Ingrese su edad: "))
+        print("Error: este campo no puede quedar vacío.")
 
-# Solicita el peso y lo convierte a decimal
-peso = float(input("Ingrese su peso en kilogramos: "))
 
-# Solicita la estatura y la convierte a decimal
-estatura = float(input("Ingrese su estatura en metros: "))
+# Solicita un número entero y verifica que sea válido
+def solicitar_entero(mensaje):
+    while True:
+        dato = input(mensaje).strip()
+
+        if not dato:
+            print("Error: este campo no puede quedar vacío.")
+            continue
+
+        try:
+            return int(dato)
+        except ValueError:
+            print("Error: ingrese una edad válida usando números.")
+
+
+# Solicita un número decimal y verifica que sea válido
+def solicitar_decimal(mensaje):
+    while True:
+        dato = input(mensaje).strip()
+
+        if not dato:
+            print("Error: este campo no puede quedar vacío.")
+            continue
+
+        try:
+            return float(dato)
+        except ValueError:
+            print("Error: ingrese un valor numérico válido.")
+
+
+# Solicita los datos de la persona
+nombre = solicitar_texto("Ingrese su nombre: ")
+apellido_paterno = solicitar_texto("Ingrese su apellido paterno: ")
+apellido_materno = solicitar_texto("Ingrese su apellido materno: ")
+edad = solicitar_entero("Ingrese su edad: ")
+peso = solicitar_decimal("Ingrese su peso en kilogramos: ")
+estatura = solicitar_decimal("Ingrese su estatura en metros: ")
 
 # Calcula el Índice de Masa Corporal
 imc = peso / (estatura ** 2)
 
-# Muestra todos los datos y el resultado utilizando una f-string
+# Muestra los datos y el resultado utilizando una f-string
 print(f"""
 --- Datos de la persona ---
 Nombre: {nombre}
